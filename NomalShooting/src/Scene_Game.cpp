@@ -10,7 +10,7 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 	Image::imageLoader.LoadOneImage(ImageName::PlayerImage, "data/image/fighter.png");
 	Image::imageLoader.LoadOneImage(ImageName::NomalBulletImage, "data/image/bullet.png");
 
-	charaManager.SetCharacter(
+	charaManager.AddCharacter(
 		charaFactory.CreateBack(
 			Image::imageLoader.GetImageData(ImageName::BackImage),
 			Math::Vec2(-5, 0),
@@ -18,7 +18,7 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 		)
 	);
 
-	charaManager.SetCharacter(
+	charaManager.AddCharacter(
 		charaFactory.CreatePlayer(
 			Image::imageLoader.GetImageData(ImageName::PlayerImage),
 			Math::Vec2(100, (float)System::windowSizeY / 2)
@@ -34,7 +34,6 @@ Scene_Game::~Scene_Game()
 void Scene_Game::Update()
 {
 	charaManager.AllUpdate();
-	charaManager.SortCharacter();
 }
 
 SceneParameter Scene_Game::GetParameter()

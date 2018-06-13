@@ -2,6 +2,7 @@
 #include "CharacterFactory.h"
 #include "System.h"
 
+//-----------------------------------------------------------------------------
 Character_NomalBullet::Character_NomalBullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos):
 	CharacterAbstract(ID, 0.2f),
 	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false)
@@ -12,6 +13,7 @@ Character_NomalBullet::Character_NomalBullet(CharacterID ID, ImageData imageData
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
+//-----------------------------------------------------------------------------
 void Character_NomalBullet::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
 {
 	parameter.move->ClearMoveVec();
@@ -43,6 +45,7 @@ void Character_NomalBullet::Update(const std::vector<std::unique_ptr<ROCharacter
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
+//-----------------------------------------------------------------------------
 void Character_NomalBullet::Draw()
 {
 	imageDrawer.Draw(parameter.move->GetPos(), 1.f, parameter.move->GetAngle(), false);

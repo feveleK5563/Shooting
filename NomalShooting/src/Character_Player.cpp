@@ -5,6 +5,7 @@
 
 #include "Character_Player.h"
 
+//-----------------------------------------------------------------------------
 Character_Player::Character_Player(const ImageData& imageData, const Math::Vec2& pos):
 	CharacterAbstract(CharacterID::Player, 0.1f),
 	imageDrawer(imageData, Math::Vec2((float)imageData.size.w / 2, (float)imageData.size.h / 2), false)
@@ -15,6 +16,7 @@ Character_Player::Character_Player(const ImageData& imageData, const Math::Vec2&
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
+//-----------------------------------------------------------------------------
 void Character_Player::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
 {
 	CharacterAbstract::ClearCreatedCharacter();
@@ -30,6 +32,7 @@ void Character_Player::Update(const std::vector<std::unique_ptr<ROCharacterParam
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
+//-----------------------------------------------------------------------------
 void Character_Player::Draw()
 {
 	imageDrawer.Draw(parameter.move->GetPos(), 1.0f, 0.f, false);

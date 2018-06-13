@@ -14,20 +14,8 @@
     <Filter Include="ソース ファイル\Object">
       <UniqueIdentifier>{a090e20a-fb55-4738-a2bf-6d56bfbcede7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Object\Character">
-      <UniqueIdentifier>{f4ae951a-0e38-4047-a37a-395595c0ae25}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Loder">
       <UniqueIdentifier>{8196d910-ba07-4b0a-9451-e829938b4f62}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Character\Player">
-      <UniqueIdentifier>{860a5be7-2861-4cba-82c5-d4148b4938ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Character\BackImage">
-      <UniqueIdentifier>{f8ff03ac-7c78-46ae-9391-d7fffc89a38f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Object\Character\Bullet">
-      <UniqueIdentifier>{35937a20-1ae6-4bcc-b660-9cfbbf923875}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{e52a72e6-3dae-45c2-a457-3e0e457c0f9b}</UniqueIdentifier>
@@ -37,6 +25,18 @@
     </Filter>
     <Filter Include="ソース ファイル\Scene\Title">
       <UniqueIdentifier>{ae933783-d791-4be4-8162-1b1cee86b685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character">
+      <UniqueIdentifier>{f4ae951a-0e38-4047-a37a-395595c0ae25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\Player">
+      <UniqueIdentifier>{860a5be7-2861-4cba-82c5-d4148b4938ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\BackImage">
+      <UniqueIdentifier>{f8ff03ac-7c78-46ae-9391-d7fffc89a38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\Bullet">
+      <UniqueIdentifier>{35937a20-1ae6-4bcc-b660-9cfbbf923875}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,31 +71,31 @@
       <Filter>ソース ファイル\Loder</Filter>
     </ClCompile>
     <ClCompile Include="src\Character_Player.cpp">
-      <Filter>ソース ファイル\Object\Character\Player</Filter>
+      <Filter>ソース ファイル\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="src\CharacterManager.cpp">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CharacterFactory.cpp">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\Character_BackImage.cpp">
-      <Filter>ソース ファイル\Object\Character\BackImage</Filter>
+      <Filter>ソース ファイル\Character\BackImage</Filter>
     </ClCompile>
     <ClCompile Include="src\CharacterAbstract.cpp">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\Character_NomalBullet.cpp">
-      <Filter>ソース ファイル\Object\Character\Bullet</Filter>
+      <Filter>ソース ファイル\Character\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="src\System.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
     <ClCompile Include="src\CharacterParameter.cpp">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\CharacterDatabase.cpp">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
     <ClCompile Include="src\Scene_Game.cpp">
       <Filter>ソース ファイル\Scene\Game</Filter>
@@ -130,7 +130,7 @@
       <Filter>ソース ファイル\Object</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterAbstract.h">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\ImageDrawer.h">
       <Filter>ソース ファイル\Object</Filter>
@@ -142,28 +142,28 @@
       <Filter>ソース ファイル\Loder</Filter>
     </ClInclude>
     <ClInclude Include="src\Character_Player.h">
-      <Filter>ソース ファイル\Object\Character\Player</Filter>
+      <Filter>ソース ファイル\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterParameter.h">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterManager.h">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterFactory.h">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\Character_BackImage.h">
-      <Filter>ソース ファイル\Object\Character\BackImage</Filter>
+      <Filter>ソース ファイル\Character\BackImage</Filter>
     </ClInclude>
     <ClInclude Include="src\Character_NomalBullet.h">
-      <Filter>ソース ファイル\Object\Character\Bullet</Filter>
+      <Filter>ソース ファイル\Character\Bullet</Filter>
     </ClInclude>
     <ClInclude Include="src\System.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterDatabase.h">
-      <Filter>ソース ファイル\Object\Character</Filter>
+      <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\Scene_Game.h">
       <Filter>ソース ファイル\Scene\Game</Filter>
