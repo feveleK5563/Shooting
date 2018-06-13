@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{24fcfc0f-04af-4670-8e6c-069797817c7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\System\Input">
+      <UniqueIdentifier>{fb73a09f-74b1-4bcb-a017-d5c6d14d8ce3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{a090e20a-fb55-4738-a2bf-6d56bfbcede7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Character">
+      <UniqueIdentifier>{f4ae951a-0e38-4047-a37a-395595c0ae25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Loder">
+      <UniqueIdentifier>{8196d910-ba07-4b0a-9451-e829938b4f62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Character\Player">
+      <UniqueIdentifier>{860a5be7-2861-4cba-82c5-d4148b4938ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Character\BackImage">
+      <UniqueIdentifier>{f8ff03ac-7c78-46ae-9391-d7fffc89a38f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object\Character\Bullet">
+      <UniqueIdentifier>{35937a20-1ae6-4bcc-b660-9cfbbf923875}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{e52a72e6-3dae-45c2-a457-3e0e457c0f9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Game">
+      <UniqueIdentifier>{4f376716-ecb2-4958-9851-9225b1bb882e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene\Title">
+      <UniqueIdentifier>{ae933783-d791-4be4-8162-1b1cee86b685}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameSystem.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Looper.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\InputState.cpp">
+      <Filter>ソース ファイル\System\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ButtonInfo.cpp">
+      <Filter>ソース ファイル\System\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Move.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImageDrawer.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TimeCounter.cpp">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ImageLoader.cpp">
+      <Filter>ソース ファイル\Loder</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character_Player.cpp">
+      <Filter>ソース ファイル\Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterManager.cpp">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterFactory.cpp">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character_BackImage.cpp">
+      <Filter>ソース ファイル\Object\Character\BackImage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterAbstract.cpp">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character_NomalBullet.cpp">
+      <Filter>ソース ファイル\Object\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="src\System.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterParameter.cpp">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CharacterDatabase.cpp">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene_Game.cpp">
+      <Filter>ソース ファイル\Scene\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene_Title.cpp">
+      <Filter>ソース ファイル\Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneParameter.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GameSystem.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Looper.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Math.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InputState.h">
+      <Filter>ソース ファイル\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ButtonInfo.h">
+      <Filter>ソース ファイル\System\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Move.h">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterAbstract.h">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImageDrawer.h">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TimeCounter.h">
+      <Filter>ソース ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ImageLoader.h">
+      <Filter>ソース ファイル\Loder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_Player.h">
+      <Filter>ソース ファイル\Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterParameter.h">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterManager.h">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterFactory.h">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_BackImage.h">
+      <Filter>ソース ファイル\Object\Character\BackImage</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_NomalBullet.h">
+      <Filter>ソース ファイル\Object\Character\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="src\System.h">
+      <Filter>ソース ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CharacterDatabase.h">
+      <Filter>ソース ファイル\Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene_Game.h">
+      <Filter>ソース ファイル\Scene\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scene_Title.h">
+      <Filter>ソース ファイル\Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneAbstract.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneParameter.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
