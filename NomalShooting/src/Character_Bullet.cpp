@@ -14,18 +14,17 @@ Character_Bullet::Character_Bullet(CharacterID ID, ImageData imageData, float an
 }
 
 //-----------------------------------------------------------------------------
-void Character_Bullet::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
+void Character_Bullet::Update(const ROD& data)
 {
 	parameter.move->ClearMoveVec();
-	parameter.move->AddAngleMoveVec();
+	BF::NomalMove(*this, data);
 	parameter.move->UpdatePos();
 
 	//画面外に出たら削除
-	if (BF::WindowOutDelete(*this)) return;
+	if (BF::WindowOutDelete(*this, data)) return;
 
 	//(仮)プレイヤーと接触したら消滅
-	/*parameter.hitBase->Offset(parameter.move->GetPos());
-	for (auto it = data.begin();
+	/*for (auto it = data.begin();
 		it != data.end();
 		++it)
 	{
@@ -38,7 +37,6 @@ void Character_Bullet::Update(const std::vector<std::unique_ptr<ROCharacterParam
 			}
 		}
 	}*/
-
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 

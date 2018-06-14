@@ -4,7 +4,7 @@
 #include "Behavior.h"
 
 //プレイヤー用通常弾を生成する
-bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara)
+bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara, const ROD& data)
 {
 	if (Input::joypad1[PAD_INPUT_1].GetDurationTime(ON) % 3 == 0)
 	{

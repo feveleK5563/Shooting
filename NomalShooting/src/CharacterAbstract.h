@@ -2,6 +2,7 @@
 #include <memory>
 #include <vector>
 #include "CharacterParameter.h"
+#include "CharacterDatabase.h"
 
 class CharacterAbstract
 {
@@ -12,7 +13,7 @@ protected:
 public:
 	CharacterAbstract(CharacterID ID, float priority);
 	virtual ~CharacterAbstract() = default;
-	virtual void Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data) = 0;
+	virtual void Update(const ROD& data) = 0;
 	virtual void Draw() = 0;
 
 	const CharacterParameter& GetParameterRef();

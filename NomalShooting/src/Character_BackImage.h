@@ -14,7 +14,7 @@ private:
 public:
 	//画像データ、移動量、無限スクロールするか否かを設定
 	Character_BackImage(const ImageData& imageData, const Math::Vec2& moveVec, bool setIsInfinite);
-	void Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data) override;
+	void Update(const ROD& data) override;
 	void Draw() override;
 
 private:

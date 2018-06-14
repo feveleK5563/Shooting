@@ -127,6 +127,9 @@
     <ClCompile Include="src\Behavior_WindowOutDelete.cpp">
       <Filter>ソース ファイル\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="src\Behavior_NomalMove.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameSystem.h">

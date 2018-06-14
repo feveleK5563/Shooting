@@ -29,10 +29,10 @@ struct CharacterParameter
 {
 	std::shared_ptr<CharacterID>	ID;				//身元(必須)
 	std::shared_ptr<float>			priority;		//優先度(必須)
+	std::shared_ptr<unsigned int>	createdNum;		//生成したキャラクターの数(必須)
 	std::shared_ptr<State>			state;			//状態
 	std::shared_ptr<Move>			move;			//座標と動作
 	std::shared_ptr<Math::Box2D>	hitBase;		//当たり判定
-	std::shared_ptr<unsigned int>	createdNum;		//生成したキャラクターの数
 
 	CharacterParameter(CharacterID ID, float priority);
 
@@ -46,6 +46,7 @@ struct ROCharacterParameter
 {
 	const std::shared_ptr<const CharacterID>	ID;				//身元(必須)
 	const std::shared_ptr<const float>			priority;		//優先度(必須)
+	const std::shared_ptr<const unsigned int>	createdNum;		//生成したキャラクターの数(必須)
 	const std::shared_ptr<const State>			state;			//状態
 	const std::shared_ptr<const Move>			move;			//座標と動作
 	const std::shared_ptr<const Math::Box2D>	hitBase;		//当たり判定

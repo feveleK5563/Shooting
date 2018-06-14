@@ -17,7 +17,7 @@ void CharacterDatabase::ClearCharacterData()
 }
 
 //ƒf[ƒ^‚Ì‚Ü‚Æ‚ß‚ğ•Ô‚·
-const std::vector<std::unique_ptr<ROCharacterParameter>>& CharacterDatabase::GetCharacterData()
+const ROD& CharacterDatabase::GetCharacterData()
 {
 	return data;
 }

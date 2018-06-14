@@ -15,7 +15,7 @@ Character_BackImage::Character_BackImage(const ImageData& imageData, const Math:
 	parameter.UseMove(Math::Vec2(0, 0), moveVec, 0, 0);
 }
 
-void Character_BackImage::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
+void Character_BackImage::Update(const ROD& data)
 {
 	//À•W‚ðˆÚ“®
 	parameter.move->UpdatePos();

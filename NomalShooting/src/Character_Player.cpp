@@ -17,15 +17,15 @@ Character_Player::Character_Player(const ImageData& imageData, const Math::Vec2&
 }
 
 //-----------------------------------------------------------------------------
-void Character_Player::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
+void Character_Player::Update(const ROD& data)
 {
 	CharacterAbstract::ClearCreatedCharacter();
 
 	parameter.move->ClearMoveVec();
-	BF::ControllJpad(*this);
+	BF::ControllJpad(*this, data);
 	parameter.move->NotScreenOutUpdatePos((*parameter.hitBase));
 
-	BF::CreateNomalBulletForPlayer(*this);
+	BF::CreateNomalBulletForPlayer(*this, data);
 
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }

@@ -5,10 +5,10 @@
 CharacterParameter::CharacterParameter(CharacterID ID, float priority):
 	ID(std::make_shared<CharacterID>(ID)),
 	priority(std::make_shared<float>(priority)),
+	createdNum(std::make_shared<unsigned int>(0)),
 	state(nullptr),
 	move(nullptr),
-	hitBase(nullptr),
-	createdNum(std::make_shared<unsigned int>(0)) {}
+	hitBase(nullptr) {}
 
 void CharacterParameter::UseState(const State& state)
 {
@@ -33,6 +33,7 @@ void CharacterParameter::UseHitBase(int x, int y, int w, int h)
 ROCharacterParameter::ROCharacterParameter(const CharacterParameter& character) :
 	ID(character.ID),
 	priority(character.priority),
+	createdNum(character.createdNum),
 	state(character.state),
 	move(character.move),
 	hitBase(character.hitBase) {}

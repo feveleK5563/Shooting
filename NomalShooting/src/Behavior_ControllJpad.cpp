@@ -1,10 +1,9 @@
 #include "InputState.h"
-#include "System.h"
 
 #include "Behavior.h"
 
 //ジョイパッドで操作する
-bool BF::ControllJpad(CharacterAbstract& chara)
+bool BF::ControllJpad(CharacterAbstract& chara, const ROD& data)
 {
 	if (Input::joypad1.GetVolumeStickL() > 0.f)
 	{

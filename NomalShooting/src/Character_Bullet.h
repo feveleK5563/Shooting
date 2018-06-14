@@ -11,6 +11,6 @@ private:
 public:
 	//id、優先度、傾き、移動量、座標を設定
 	Character_Bullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 setPos);
-	void Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data) override;
+	void Update(const ROD& data) override;
 	void Draw() override;
 };

@@ -42,6 +42,20 @@ void ImageDrawer::Draw(const Math::Vec2& pos, float scale, float angle, bool isT
 		false);
 }
 
+//一枚だけ描画する(アニメーションしない)
+void ImageDrawer::DrawOne(const Math::Vec2& pos, float scale, float angle, bool isTurn, int imageSheet)
+{
+	DrawRotaGraph2F(
+		pos.x, pos.y,
+		criterionPos.x, criterionPos.y,
+		(double)scale,
+		(double)angle,
+		imageData.handle[imageSheet],
+		true,
+		isTurn,
+		false);
+}
+
 //画像データを取得
 const ImageData& ImageDrawer::GetImageData() const
 {

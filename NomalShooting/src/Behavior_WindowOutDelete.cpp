@@ -1,7 +1,9 @@
+#include "System.h"
+
 #include "Behavior.h"
 
 //‰æ–ÊŠO‚Éo‚½‚ç©g‚ğíœ‚·‚é
-bool BF::WindowOutDelete(CharacterAbstract& chara)
+bool BF::WindowOutDelete(CharacterAbstract& chara, const ROD& data)
 {
 	if (System::WindowOutBox((*chara.GetParameterRef().hitBase)))
 	{

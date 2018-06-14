@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="src\Behavior_ControllJpad.cpp" />
     <ClCompile Include="src\Behavior_CreateNomalBulletForPlayer.cpp" />
+    <ClCompile Include="src\Behavior_NomalMove.cpp" />
     <ClCompile Include="src\Behavior_WindowOutDelete.cpp" />
     <ClCompile Include="src\CharacterAbstract.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
