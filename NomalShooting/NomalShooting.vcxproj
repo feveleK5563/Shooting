@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Behavior_ControllJpad.cpp" />
+    <ClCompile Include="src\Behavior_CreateNomalBulletForPlayer.cpp" />
+    <ClCompile Include="src\Behavior_WindowOutDelete.cpp" />
     <ClCompile Include="src\CharacterAbstract.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
     <ClCompile Include="src\CharacterParameter.cpp" />
@@ -26,7 +29,8 @@
     <ClCompile Include="src\ButtonInfo.cpp" />
     <ClCompile Include="src\CharacterFactory.cpp" />
     <ClCompile Include="src\CharacterManager.cpp" />
-    <ClCompile Include="src\Character_NomalBullet.cpp" />
+    <ClCompile Include="src\Character_Enemy.cpp" />
+    <ClCompile Include="src\Character_Bullet.cpp" />
     <ClCompile Include="src\Character_Player.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\GameSystem.cpp" />
@@ -44,6 +48,7 @@
     <ClCompile Include="src\TimeCounter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Behavior.h" />
     <ClInclude Include="src\CharacterDatabase.h" />
     <ClInclude Include="src\Character_BackImage.h" />
     <ClInclude Include="src\ButtonInfo.h" />
@@ -51,7 +56,8 @@
     <ClInclude Include="src\CharacterFactory.h" />
     <ClInclude Include="src\CharacterManager.h" />
     <ClInclude Include="src\CharacterParameter.h" />
-    <ClInclude Include="src\Character_NomalBullet.h" />
+    <ClInclude Include="src\Character_Enemy.h" />
+    <ClInclude Include="src\Character_Bullet.h" />
     <ClInclude Include="src\Character_Player.h" />
     <ClInclude Include="src\System.h" />
     <ClInclude Include="src\GameSystem.h" />
@@ -141,10 +147,14 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>DxLib\DxLib_VC;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>DxLib\DxLib_VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

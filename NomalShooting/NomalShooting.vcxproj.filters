@@ -38,6 +38,12 @@
     <Filter Include="ソース ファイル\Character\Bullet">
       <UniqueIdentifier>{35937a20-1ae6-4bcc-b660-9cfbbf923875}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Behavior">
+      <UniqueIdentifier>{d4cf98ac-3638-4795-9159-5b7aac404872}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Character\Enemy">
+      <UniqueIdentifier>{0007290a-d20f-44dc-b2fa-9a97a2d8f008}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -85,9 +91,6 @@
     <ClCompile Include="src\CharacterAbstract.cpp">
       <Filter>ソース ファイル\Character</Filter>
     </ClCompile>
-    <ClCompile Include="src\Character_NomalBullet.cpp">
-      <Filter>ソース ファイル\Character\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="src\System.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
@@ -108,6 +111,21 @@
     </ClCompile>
     <ClCompile Include="src\SceneParameter.cpp">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Behavior_ControllJpad.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Behavior_CreateNomalBulletForPlayer.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character_Enemy.cpp">
+      <Filter>ソース ファイル\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Character_Bullet.cpp">
+      <Filter>ソース ファイル\Character\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Behavior_WindowOutDelete.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +174,6 @@
     <ClInclude Include="src\Character_BackImage.h">
       <Filter>ソース ファイル\Character\BackImage</Filter>
     </ClInclude>
-    <ClInclude Include="src\Character_NomalBullet.h">
-      <Filter>ソース ファイル\Character\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="src\System.h">
       <Filter>ソース ファイル\System</Filter>
     </ClInclude>
@@ -179,6 +194,15 @@
     </ClInclude>
     <ClInclude Include="src\SceneParameter.h">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Behavior.h">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_Enemy.h">
+      <Filter>ソース ファイル\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_Bullet.h">
+      <Filter>ソース ファイル\Character\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

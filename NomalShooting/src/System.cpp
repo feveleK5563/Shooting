@@ -10,6 +10,15 @@ bool System::WindowOutBox(const Math::Box2D& hitBase)
 	return !windowBox.Hit(hitBase);
 }
 
+//画面内判定(引数に画像サイズを指定、画面内にいたらtrue)
+bool System::WindowInBox(const Math::Box2D& hitBase)
+{
+	Math::Box2D windowBox(0, 0, windowSizeX, windowSizeY);
+	return	windowBox.x < hitBase.x && windowBox.y < hitBase.y &&
+			windowBox.x + windowBox.w > hitBase.x + hitBase.w &&
+			windowBox.y + windowBox.h > hitBase.y + hitBase.h;
+}
+
 //安全にdeleteする
 template<class T>void System::SafeDelete(T& t)
 {

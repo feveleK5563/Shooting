@@ -7,7 +7,8 @@ CharacterParameter::CharacterParameter(CharacterID ID, float priority):
 	priority(std::make_shared<float>(priority)),
 	state(nullptr),
 	move(nullptr),
-	hitBase(nullptr) {}
+	hitBase(nullptr),
+	createdNum(std::make_shared<unsigned int>(0)) {}
 
 void CharacterParameter::UseState(const State& state)
 {

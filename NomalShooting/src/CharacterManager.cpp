@@ -70,7 +70,7 @@ void CharacterManager::GetCharacterParameter()
 	//パラメータ情報を受け取る
 	for (auto it : character)
 	{
-		database.AddCharacterData(it->GetParameter());
+		database.AddCharacterData(it->GetParameterRef());
 	}
 }
 
@@ -91,11 +91,11 @@ void CharacterManager::GetCreatedCharacter()
 	size_t size = character.size();
 	for (size_t i = 0; i < size; ++i)
 	{
-		auto data = character[i]->GetCreatedCharacter();
-		if ((*data).empty())
+		auto data = character[i]->GetCreatedCharacterRef();
+		if (data.empty())
 			continue;
 
-		character.insert(character.end(), (*data).begin(), (*data).end());
+		character.insert(character.end(), data.begin(), data.end());
 	}
 }
 
@@ -123,13 +123,13 @@ void CharacterManager::SortCharacter()
 bool CharacterManager::SortAsc(const std::shared_ptr<CharacterAbstract>& left,
 	const std::shared_ptr<CharacterAbstract>& right)
 {
-	return (*left->GetParameter().priority) < (*right->GetParameter().priority);
+	return (*left->GetParameterRef().priority) < (*right->GetParameterRef().priority);
 }
 
 //-----------------------------------------------
 //ステータスを見て、条件がDeleteのキャラクターを削除する条件
 bool CharacterManager::RemoveStateDelete(const std::shared_ptr<CharacterAbstract>& chara)
 {
-	return (*chara->GetParameter().state) == State::Delete;
+	return (*chara->GetParameterRef().state) == State::Delete;
 }
 

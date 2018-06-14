@@ -22,7 +22,7 @@ public:
 
 	void SetPosX(float posX);				//座標Xを設定
 	void SetPosY(float posY);				//座標Yを設定
-	void SetAngle(float angle);			//角度を設定
+	void SetAngle(float angle);				//角度を設定
 	void SetVolume(float moveVolume);		//移動量を設定
 
 	void ClearMoveVec();									//移動ベクトルをゼロクリアする
@@ -31,6 +31,7 @@ public:
 	void AddMoveVolume(float addVolume);					//移動量に指定量加算する
 	void AddAngleMoveVec();									//角度と移動量からベクトルを算出し、移動ベクトルに加算する
 	void UpdatePos();										//移動ベクトル量を座標に加算する(動かす)
+	void NotScreenOutUpdatePos(const Math::Box2D& rect);	//画面外に出ない移動
 
 	const Math::Vec2&	GetPos() const;			//座標を取得する
 	const Math::Vec2&	GetMoveVec() const;		//移動ベクトルを取得する

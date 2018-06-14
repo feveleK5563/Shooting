@@ -3,14 +3,15 @@
 CharacterAbstract::CharacterAbstract(CharacterID ID, float priority) :
 	parameter(ID, priority) {}
 
-const CharacterParameter& CharacterAbstract::GetParameter() const
+const CharacterParameter& CharacterAbstract::GetParameterRef()
 {
 	return parameter;
 }
 
-const std::vector<std::shared_ptr<CharacterAbstract>>* const CharacterAbstract::GetCreatedCharacter() const
+std::vector<std::shared_ptr<CharacterAbstract>>& CharacterAbstract::GetCreatedCharacterRef()
 {
-	return &createdCharacter;
+	(*parameter.createdNum) = (unsigned int)createdCharacter.size();
+	return createdCharacter;
 }
 
 void CharacterAbstract::ClearCreatedCharacter()

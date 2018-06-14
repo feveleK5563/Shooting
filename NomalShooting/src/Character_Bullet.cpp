@@ -1,9 +1,9 @@
-#include "Character_NomalBullet.h"
+#include "Character_Bullet.h"
 #include "CharacterFactory.h"
 #include "System.h"
 
 //-----------------------------------------------------------------------------
-Character_NomalBullet::Character_NomalBullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos):
+Character_Bullet::Character_Bullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos):
 	CharacterAbstract(ID, 0.2f),
 	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false)
 {
@@ -14,17 +14,14 @@ Character_NomalBullet::Character_NomalBullet(CharacterID ID, ImageData imageData
 }
 
 //-----------------------------------------------------------------------------
-void Character_NomalBullet::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
+void Character_Bullet::Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data)
 {
 	parameter.move->ClearMoveVec();
 	parameter.move->AddAngleMoveVec();
 	parameter.move->UpdatePos();
 
 	//画面外に出たら削除
-	if (System::WindowOutBox((*parameter.hitBase)))
-	{
-		(*parameter.state) = State::Delete;
-	}
+	if (BF::WindowOutDelete(*this)) return;
 
 	//(仮)プレイヤーと接触したら消滅
 	/*parameter.hitBase->Offset(parameter.move->GetPos());
@@ -46,7 +43,7 @@ void Character_NomalBullet::Update(const std::vector<std::unique_ptr<ROCharacter
 }
 
 //-----------------------------------------------------------------------------
-void Character_NomalBullet::Draw()
+void Character_Bullet::Draw()
 {
 	imageDrawer.Draw(parameter.move->GetPos(), 1.f, parameter.move->GetAngle(), false);
 }

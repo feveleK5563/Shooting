@@ -32,6 +32,7 @@ struct CharacterParameter
 	std::shared_ptr<State>			state;			//状態
 	std::shared_ptr<Move>			move;			//座標と動作
 	std::shared_ptr<Math::Box2D>	hitBase;		//当たり判定
+	std::shared_ptr<unsigned int>	createdNum;		//生成したキャラクターの数
 
 	CharacterParameter(CharacterID ID, float priority);
 

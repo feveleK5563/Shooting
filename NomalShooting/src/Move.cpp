@@ -1,3 +1,5 @@
+#include "System.h"
+
 #include "Move.h"
 
 //コンストラクタ(座標、移動ベクトルは0)
@@ -70,6 +72,37 @@ void Move::AddAngleMoveVec()
 void Move::UpdatePos()
 {
 	pos += moveVec;
+}
+//画面外に出ない移動
+void Move::NotScreenOutUpdatePos(const Math::Box2D& rect)
+{
+	for (int i = 0; i < 2; ++i)
+	{
+		float estxy, *posxy;
+		if (i == 0)
+		{
+			estxy = moveVec.x;
+			posxy = &pos.x;
+		}
+		else
+		{
+			estxy = moveVec.y;
+			posxy = &pos.y;
+		}
+
+		while (estxy != 0.f)
+		{
+			float cpyPos = *posxy;
+			if		(estxy > 1.f)	{ *posxy += 1.f;	estxy -= 1.f; }
+			else if (estxy < -1.f)	{ *posxy -= 1.f;	estxy += 1.f; }
+			else					{ *posxy += estxy;	estxy = 0; }
+			if (!System::WindowInBox(rect.OffsetCpy(pos)))
+			{
+				*posxy = cpyPos;
+				break;
+			}
+		}
+	}
 }
 
 

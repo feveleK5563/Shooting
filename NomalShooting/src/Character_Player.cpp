@@ -22,12 +22,10 @@ void Character_Player::Update(const std::vector<std::unique_ptr<ROCharacterParam
 	CharacterAbstract::ClearCreatedCharacter();
 
 	parameter.move->ClearMoveVec();
+	BF::ControllJpad(*this);
+	parameter.move->NotScreenOutUpdatePos((*parameter.hitBase));
 
-	ControllPlayer();
-
-	parameter.move->UpdatePos();
-
-	ShotBullet();
+	BF::CreateNomalBulletForPlayer(*this);
 
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
@@ -36,34 +34,4 @@ void Character_Player::Update(const std::vector<std::unique_ptr<ROCharacterParam
 void Character_Player::Draw()
 {
 	imageDrawer.Draw(parameter.move->GetPos(), 1.0f, 0.f, false);
-}
-
-
-//プレイヤーをジョイパッドで操作する
-void Character_Player::ControllPlayer()
-{
-	if (Input::joypad1.GetVolumeStickL() > 0.f)
-	{
-		parameter.move->SetAngle(Input::joypad1.GetAngleStickL());
-		parameter.move->SetVolume(8.f);
-		parameter.move->AddAngleMoveVec();
-	}
-}
-
-//ボタン入力で弾を発射する
-void Character_Player::ShotBullet()
-{
-	if (Input::joypad1[PAD_INPUT_1].GetDurationTime(ON) % 3 == 0)
-	{
-		CharacterFactory fac;
-		createdCharacter.emplace_back(
-			fac.CreateNomalBullet(
-				CharacterID::PlayerBullet,
-				Image::imageLoader.GetImageData(ImageName::NomalBulletImage),
-				Math::ToRadian(0.f),
-				30.f,
-				parameter.move->GetPos() + Math::Vec2(40, 0)
-			)
-		);
-	}
 }

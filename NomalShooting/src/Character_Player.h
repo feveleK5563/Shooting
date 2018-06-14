@@ -1,5 +1,6 @@
 #pragma once
 #include "ImageDrawer.h"
+#include "Behavior.h"
 #include "CharacterAbstract.h"
 
 class Character_Player : public CharacterAbstract
@@ -12,8 +13,4 @@ public:
 	Character_Player(const ImageData& imageData, const Math::Vec2& setPos);
 	void Update(const std::vector<std::unique_ptr<ROCharacterParameter>>& data) override;
 	void Draw() override;
-
-private:
-	void ControllPlayer();	//プレイヤーをジョイパッドで操作する
-	void ShotBullet();		//ボタン入力で弾を発射する
 };
