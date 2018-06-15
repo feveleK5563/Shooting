@@ -14,7 +14,7 @@ public:
 	Scene_Title(const SceneParameter& parameter);
 	~Scene_Title();
 
-	void Update();
-	SceneParameter GetParameter();
-	void Draw();
+	void Update() override;
+	SceneParameter GetParameter() override;
+	void Draw() override;
 };

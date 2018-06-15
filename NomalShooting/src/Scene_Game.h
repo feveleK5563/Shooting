@@ -16,7 +16,7 @@ public:
 	Scene_Game(const SceneParameter& parameter);
 	~Scene_Game();
 
-	void Update();
-	SceneParameter GetParameter();
-	void Draw();
+	void Update() override;
+	SceneParameter GetParameter() override;
+	void Draw() override;
 };

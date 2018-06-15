@@ -12,5 +12,5 @@ public:
 	std::shared_ptr<CharacterAbstract> CreatePlayer(const ImageData& imageData, const Math::Vec2& pos);
 
 	//’Êí’e‚Ì¶¬
-	std::shared_ptr<CharacterAbstract> CreateNomalBullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos);
+	std::shared_ptr<CharacterAbstract> CreateNomalBullet(CharacterID ID, CharacterID hitID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos, int R, int G, int B);
 };

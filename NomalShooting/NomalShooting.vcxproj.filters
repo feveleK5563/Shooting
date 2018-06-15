@@ -11,9 +11,6 @@
     <Filter Include="ソース ファイル\System\Input">
       <UniqueIdentifier>{fb73a09f-74b1-4bcb-a017-d5c6d14d8ce3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Object">
-      <UniqueIdentifier>{a090e20a-fb55-4738-a2bf-6d56bfbcede7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Loder">
       <UniqueIdentifier>{8196d910-ba07-4b0a-9451-e829938b4f62}</UniqueIdentifier>
     </Filter>
@@ -44,6 +41,9 @@
     <Filter Include="ソース ファイル\Character\Enemy">
       <UniqueIdentifier>{0007290a-d20f-44dc-b2fa-9a97a2d8f008}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\BaseClass">
+      <UniqueIdentifier>{a090e20a-fb55-4738-a2bf-6d56bfbcede7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -65,13 +65,13 @@
       <Filter>ソース ファイル\System\Input</Filter>
     </ClCompile>
     <ClCompile Include="src\Move.cpp">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClCompile>
     <ClCompile Include="src\ImageDrawer.cpp">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClCompile>
     <ClCompile Include="src\TimeCounter.cpp">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClCompile>
     <ClCompile Include="src\ImageLoader.cpp">
       <Filter>ソース ファイル\Loder</Filter>
@@ -148,16 +148,16 @@
       <Filter>ソース ファイル\System\Input</Filter>
     </ClInclude>
     <ClInclude Include="src\Move.h">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClInclude>
     <ClInclude Include="src\CharacterAbstract.h">
       <Filter>ソース ファイル\Character</Filter>
     </ClInclude>
     <ClInclude Include="src\ImageDrawer.h">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClInclude>
     <ClInclude Include="src\TimeCounter.h">
-      <Filter>ソース ファイル\Object</Filter>
+      <Filter>ソース ファイル\BaseClass</Filter>
     </ClInclude>
     <ClInclude Include="src\ImageLoader.h">
       <Filter>ソース ファイル\Loder</Filter>

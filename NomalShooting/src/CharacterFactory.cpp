@@ -17,7 +17,7 @@ std::shared_ptr<CharacterAbstract> CharacterFactory::CreatePlayer(const ImageDat
 }
 
 //’Êí’e‚Ìì¬
-std::shared_ptr<CharacterAbstract> CharacterFactory::CreateNomalBullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos)
+std::shared_ptr<CharacterAbstract> CharacterFactory::CreateNomalBullet(CharacterID ID, CharacterID hitID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos, int R, int G, int B)
 {
-	return std::make_shared<Character_Bullet>(ID, imageData, angle, moveVolume, pos);
+	return std::make_shared<Character_Bullet>(ID, hitID, imageData, angle, moveVolume, pos, R, G, B);
 }

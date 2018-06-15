@@ -12,10 +12,12 @@ bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara, const ROD& data)
 		chara.GetCreatedCharacterRef().emplace_back(
 			fac.CreateNomalBullet(
 				CharacterID::PlayerBullet,
+				CharacterID::Enemy,
 				Image::imageLoader.GetImageData(ImageName::NomalBulletImage),
 				Math::ToRadian(0.f),
 				30.f,
-				chara.GetParameterRef().move->GetPos() + Math::Vec2(40, 0)
+				chara.GetParameterRef().move->GetPos() + Math::Vec2(40, 0),
+				90, 210, 255
 			)
 		);
 		return true;

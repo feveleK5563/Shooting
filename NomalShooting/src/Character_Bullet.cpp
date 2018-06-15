@@ -3,9 +3,10 @@
 #include "System.h"
 
 //-----------------------------------------------------------------------------
-Character_Bullet::Character_Bullet(CharacterID ID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos):
+Character_Bullet::Character_Bullet(CharacterID ID, CharacterID hitID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos, int R, int G, int B):
 	CharacterAbstract(ID, 0.2f),
-	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false)
+	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false, R, G, B),
+	hitID(hitID)
 {
 	parameter.UseState(State::Active);
 	parameter.UseMove(pos, Math::Vec2(0, 0), angle, moveVolume);
@@ -24,11 +25,11 @@ void Character_Bullet::Update(const ROD& data)
 	if (BF::WindowOutDelete(*this, data)) return;
 
 	//(‰¼)ƒvƒŒƒCƒ„[‚ÆÚG‚µ‚½‚çÁ–Å
-	/*for (auto it = data.begin();
+	for (auto it = data.begin();
 		it != data.end();
 		++it)
 	{
-		if ((*(*it)->ID) == CharacterID::Player)
+		if ((*(*it)->ID) == hitID)
 		{
 			if (parameter.hitBase->Hit((*(*it)->hitBase)))
 			{
@@ -36,7 +37,7 @@ void Character_Bullet::Update(const ROD& data)
 				return;
 			}
 		}
-	}*/
+	}
 	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
