@@ -1,7 +1,7 @@
 #include "CharacterAbstract.h"
 
-CharacterAbstract::CharacterAbstract(CharacterID ID, float priority) :
-	parameter(ID, priority) {}
+CharacterAbstract::CharacterAbstract(CharacterID ID, float priority, State state) :
+	parameter(ID, priority, state) {}
 
 const CharacterParameter& CharacterAbstract::GetParameterRef()
 {

@@ -45,7 +45,7 @@ void CharacterManager::AllUpdate()
 void CharacterManager::AllDraw()
 {
 	//キャラクターの描画
-	for (auto it : character)
+	for (const auto& it : character)
 	{
 		it->Draw();
 	}
@@ -53,7 +53,7 @@ void CharacterManager::AllDraw()
 	//当たり判定の可視化
 	if (showRectAngle)
 	{
-		database.DrawRectAngle();
+		database.DrawHitBase();
 	}
 }
 
@@ -68,7 +68,7 @@ void CharacterManager::GetCharacterParameter()
 	database.ClearCharacterData();
 
 	//パラメータ情報を受け取る
-	for (auto it : character)
+	for (const auto& it : character)
 	{
 		database.AddCharacterData(it->GetParameterRef());
 	}
@@ -78,7 +78,7 @@ void CharacterManager::GetCharacterParameter()
 //全てのキャラクターのUpdateを呼ぶ
 void CharacterManager::AllCharacterUpdate()
 {
-	for (auto it : character)
+	for (const auto& it : character)
 	{
 		it->Update(database.GetCharacterData());
 	}
@@ -91,11 +91,12 @@ void CharacterManager::GetCreatedCharacter()
 	size_t size = character.size();
 	for (size_t i = 0; i < size; ++i)
 	{
-		auto data = character[i]->GetCreatedCharacterRef();
+		const auto& data = character[i]->GetCreatedCharacterRef();
 		if (data.empty())
 			continue;
 
 		character.insert(character.end(), data.begin(), data.end());
+		character[i]->ClearCreatedCharacter();
 	}
 }
 
@@ -103,7 +104,7 @@ void CharacterManager::GetCreatedCharacter()
 //状態がDeleteのキャラクターを削除する
 void CharacterManager::KillDeleteCharacter()
 {
-	auto removeIt = std::remove_if(character.begin(), character.end(), RemoveStateDelete);
+	const auto& removeIt = std::remove_if(character.begin(), character.end(), RemoveStateDelete);
 	character.erase(removeIt, character.end());
 
 	character.shrink_to_fit();

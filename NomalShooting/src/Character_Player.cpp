@@ -6,32 +6,36 @@
 #include "Character_Player.h"
 
 //-----------------------------------------------------------------------------
-Character_Player::Character_Player(const ImageData& imageData, const Math::Vec2& pos):
-	CharacterAbstract(CharacterID::Player, 0.1f),
+Character_Player::Character_Player(float priority, const ImageData& imageData, const Math::Vec2& pos):
+	CharacterAbstract(CharacterID::Player, priority, State::Active),
 	imageDrawer(imageData, Math::Vec2((float)imageData.size.w / 2, (float)imageData.size.h / 2), false)
 {
-	parameter.UseState(State::Active);
-	parameter.UseMove(pos, Math::Vec2(0, 0), 0, 0);
-	parameter.UseHitBase(-12, -8, 18, 16);
-	parameter.hitBase->Offset(parameter.move->GetPos());
+	parameter.UseObjectParameter();
+	parameter.objParam->life = 0;
+
+	parameter.objParam->move.SetPos(pos.x, pos.y);
+
+	parameter.objParam->hitBase = Math::Box2D(-12, -8, 18, 16);
+	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
 }
 
 //-----------------------------------------------------------------------------
 void Character_Player::Update(const ROD& data)
 {
-	CharacterAbstract::ClearCreatedCharacter();
-
-	parameter.move->ClearMoveVec();
+	parameter.objParam->move.ClearMoveVec();
 	BF::ControllJpad(*this, data);
-	parameter.move->NotScreenOutUpdatePos((*parameter.hitBase));
+	parameter.objParam->move.NotScreenOutUpdatePos(parameter.objParam->hitBase);
 
-	BF::CreateNomalBulletForPlayer(*this, data);
+	if (Input::joypad1[PAD_INPUT_1].GetDurationTime(ON) % 3 == 0)
+	{
+		BF::CreateNomalBulletForPlayer(*this, data);
+	}
 
-	parameter.hitBase->Offset(parameter.move->GetPos());
+	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
 }
 
 //-----------------------------------------------------------------------------
 void Character_Player::Draw()
 {
-	imageDrawer.Draw(parameter.move->GetPos(), 1.0f, 0.f, false);
+	imageDrawer.Draw(parameter.objParam->move.GetPos(), 1.0f, 0.f, false);
 }

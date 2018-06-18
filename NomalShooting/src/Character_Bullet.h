@@ -6,12 +6,21 @@
 class Character_Bullet : public CharacterAbstract
 {
 private:
-	ImageDrawer imageDrawer;
-	CharacterID hitID;
+	ImageDrawer	imageDrawer;
+	Behavior	moveBehavior;
+	int			hitTargetID;
 
 public:
-	//id、優先度、傾き、移動量、座標、色を設定
-	Character_Bullet(CharacterID ID, CharacterID hitID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos, int R, int G, int B);
+	Character_Bullet(	float			priority,		//優先度
+						CharacterID		ID,				//自身のID
+						Behavior		moveBehavior,	//動作の振る舞い関数
+						int				hitTargetID,	//接触判定用のID
+						ImageData		imageData,		//画像データ
+						float			angle,			//傾き
+						float			moveVolume,		//移動量
+						Math::Vec2		pos,			//出現座標
+						const Color&	color);			//色
+
 	void Update(const ROD& data) override;
 	void Draw() override;
 };

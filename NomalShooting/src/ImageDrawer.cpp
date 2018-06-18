@@ -2,23 +2,30 @@
 
 #include "ImageDrawer.h"
 
+Color::Color(): r(255), g(255), b(255){}
+
+Color::Color(int r, int g, int b): r(r), g(g), b(b){}
+
+Color::Color(const Color& color): r(color.r), g(color.g), b(color.b){}
+
+//-----------------------------------------------------------------------------
+
 //コンストラクタ(描画したい画像データとループするか否かを指定)
 ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop):
 	imageData(imageData),
 	criterionPos(criterionPos),
 	nowAnimImage(0),
 	animWaitTime(0),
-	isLoop(isLoop),
-	R(255), G(255), B(255) {}
+	isLoop(isLoop){}
 
 //コンストラクタ(描画したい画像データとループするか否かを指定)
-ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, int R, int G, int B) :
+ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color) :
 	imageData(imageData),
 	criterionPos(criterionPos),
 	nowAnimImage(0),
 	animWaitTime(0),
 	isLoop(isLoop),
-	R(R), G(G), B(B) {}
+	color(color){}
 
 
 //アニメーションさせる
@@ -42,7 +49,7 @@ void ImageDrawer::Run()
 //描画する
 void ImageDrawer::Draw(const Math::Vec2& pos, float scale, float angle, bool isTurn)
 {
-	SetDrawBright(R, G, B);
+	SetDrawBright(color.r, color.g, color.b);
 
 	DrawRotaGraph2F(
 		pos.x, pos.y,
@@ -60,7 +67,7 @@ void ImageDrawer::Draw(const Math::Vec2& pos, float scale, float angle, bool isT
 //指定番号の画像を描画する(アニメーションしない)
 void ImageDrawer::DrawOne(const Math::Vec2& pos, float scale, float angle, bool isTurn, int imageSheet)
 {
-	SetDrawBright(R, G, B);
+	SetDrawBright(color.r, color.g, color.b);
 
 	DrawRotaGraph2F(
 		pos.x, pos.y,

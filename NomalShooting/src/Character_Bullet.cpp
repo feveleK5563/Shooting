@@ -3,46 +3,59 @@
 #include "System.h"
 
 //-----------------------------------------------------------------------------
-Character_Bullet::Character_Bullet(CharacterID ID, CharacterID hitID, ImageData imageData, float angle, float moveVolume, Math::Vec2 pos, int R, int G, int B):
-	CharacterAbstract(ID, 0.2f),
-	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false, R, G, B),
-	hitID(hitID)
+Character_Bullet::Character_Bullet(	float			priority,
+									CharacterID		ID,
+									Behavior		moveBehavior,
+									int				hitTargetID,
+									ImageData		imageData,
+									float			angle,
+									float			moveVolume,
+									Math::Vec2		pos,
+									const Color&	color):
+	CharacterAbstract(ID, priority, State::Active),
+	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false, color),
+	moveBehavior(moveBehavior),
+	hitTargetID(hitTargetID)
 {
-	parameter.UseState(State::Active);
-	parameter.UseMove(pos, Math::Vec2(0, 0), angle, moveVolume);
-	parameter.UseHitBase(-8, -4, 16, 8);
-	parameter.hitBase->Offset(parameter.move->GetPos());
+	parameter.UseObjectParameter();
+	parameter.objParam->life = 1;
+
+	parameter.objParam->move.SetPos(pos.x, pos.y);
+	parameter.objParam->move.SetAngle(angle);
+	parameter.objParam->move.SetVolume(moveVolume);
+
+	parameter.objParam->hitBase = Math::Box2D(-8, -4, 16, 8);
+	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
 }
 
 //-----------------------------------------------------------------------------
 void Character_Bullet::Update(const ROD& data)
 {
-	parameter.move->ClearMoveVec();
-	BF::NomalMove(*this, data);
-	parameter.move->UpdatePos();
+	if (*parameter.state == State::Death)
+	{
+		*parameter.state = State::Delete;
+		return;
+	}
+
+	parameter.objParam->move.ClearMoveVec();
+	moveBehavior(*this, data);
+	parameter.objParam->move.UpdatePos();
 
 	//画面外に出たら削除
 	if (BF::WindowOutDelete(*this, data)) return;
 
-	//(仮)プレイヤーと接触したら消滅
-	for (auto it = data.begin();
-		it != data.end();
-		++it)
+	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
+
+	//対象と接触したら消滅する
+	if (HC::HitCheckCharacter(hitTargetID, *this, data))
 	{
-		if ((*(*it)->ID) == hitID)
-		{
-			if (parameter.hitBase->Hit((*(*it)->hitBase)))
-			{
-				(*parameter.state) = State::Delete;
-				return;
-			}
-		}
+		*parameter.state = State::Death;
+		return;
 	}
-	parameter.hitBase->Offset(parameter.move->GetPos());
 }
 
 //-----------------------------------------------------------------------------
 void Character_Bullet::Draw()
 {
-	imageDrawer.Draw(parameter.move->GetPos(), 1.f, parameter.move->GetAngle(), false);
+	imageDrawer.Draw(parameter.objParam->move.GetPos(), 1.f, parameter.objParam->move.GetAngle(), false);
 }

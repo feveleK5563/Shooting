@@ -1,17 +1,21 @@
 #pragma once
+#include "Math.h"
 #include "Move.h"
 #include "ImageDrawer.h"
 #include "System.h"
+#include "TimeCounter.h"
 
 //身元
 enum struct CharacterID
 {
-	BackGround,		//背景
-	Player,			//プレイヤー
-	Enemy,			//敵
-	PlayerBullet,	//プレイヤー弾
-	EnemyBullet,	//敵弾
-	UI,				//UI
+	Non				= 0,		//未設定
+	BackGround		= 1 << 0,	//背景
+	Player			= 1 << 1,	//プレイヤー
+	EnemyCreator	= 1 << 2,	//敵生成器
+	Enemy			= 1 << 3,	//敵
+	PlayerBullet	= 1 << 4,	//プレイヤー弾
+	EnemyBullet		= 1 << 5,	//敵弾
+	UI				= 1 << 6,	//UI
 };
 
 //状態
@@ -24,32 +28,39 @@ enum struct State
 	Delete,		//削除
 };
 
-//パラメーター構造体(使用する値の実体を生成してから使用する)
+//オブジェクト(プレイヤーとか敵とかを指す)に使用するパラメーター
+class ObjectParameter
+{
+public:
+	int			life;		//体力
+	Move		move;		//座標と動作
+	Math::Box2D	hitBase;	//当たり判定
+
+	ObjectParameter();
+};
+
+//パラメーター構造体
 struct CharacterParameter
 {
-	std::shared_ptr<CharacterID>	ID;				//身元(必須)
-	std::shared_ptr<float>			priority;		//優先度(必須)
-	std::shared_ptr<unsigned int>	createdNum;		//生成したキャラクターの数(必須)
-	std::shared_ptr<State>			state;			//状態
-	std::shared_ptr<Move>			move;			//座標と動作
-	std::shared_ptr<Math::Box2D>	hitBase;		//当たり判定
+	std::shared_ptr<CharacterID>		ID;				//身元(必須)
+	std::shared_ptr<float>				priority;		//優先度(必須)
+	std::shared_ptr<unsigned int>		createdNum;		//生成したキャラクターの数(必須)
+	std::shared_ptr<State>				state;			//状態
+	std::shared_ptr<TimeCounter>		timeCnt;		//時間計測
+	std::shared_ptr<ObjectParameter>	objParam;		//個体が使用するパラメーター
 
-	CharacterParameter(CharacterID ID, float priority);
-
-	void UseState(const State& state);
-	void UseMove(const Math::Vec2&	pos, const Math::Vec2&	moveVec, float angle, float moveVolume);
-	void UseHitBase(int x, int y, int w, int h);
+	CharacterParameter(CharacterID ID, float priority, State state);
+	void UseObjectParameter();
 };
 
 //読み取り専用パラメーター構造体
 struct ROCharacterParameter
 {
-	const std::shared_ptr<const CharacterID>	ID;				//身元(必須)
-	const std::shared_ptr<const float>			priority;		//優先度(必須)
-	const std::shared_ptr<const unsigned int>	createdNum;		//生成したキャラクターの数(必須)
-	const std::shared_ptr<const State>			state;			//状態
-	const std::shared_ptr<const Move>			move;			//座標と動作
-	const std::shared_ptr<const Math::Box2D>	hitBase;		//当たり判定
+	const std::shared_ptr<const CharacterID>		ID;				//身元(必須)
+	const std::shared_ptr<const float>				priority;		//優先度(必須)
+	const std::shared_ptr<const unsigned int>		createdNum;		//生成したキャラクターの数(必須)
+	const std::shared_ptr<const State>				state;			//状態
+	const std::shared_ptr<const ObjectParameter>	objParam;		//個体が使用するパラメーター
 
 	ROCharacterParameter(const CharacterParameter& character);
 };

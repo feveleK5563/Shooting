@@ -6,7 +6,7 @@
 //データを追加する
 void CharacterDatabase::AddCharacterData(const CharacterParameter& parameter)
 {
-	this->data.emplace_back(std::make_unique<ROCharacterParameter>(parameter));
+	this->data.emplace_back(std::make_shared<ROCharacterParameter>(parameter));
 }
 
 //保持しているデータを全て削除する
@@ -22,19 +22,17 @@ const ROD& CharacterDatabase::GetCharacterData()
 	return data;
 }
 
-//データから矩形を調べて描画する
-void CharacterDatabase::DrawRectAngle()
+//データから当たり判定矩形を調べて描画する
+void CharacterDatabase::DrawHitBase()
 {
 	int color = GetColor(255, 255, 255);
 
-	for (auto it = data.begin();
-		 it != data.end();
-		 ++it)
+	for (const auto& it : data)
 	{
-		if ((*it)->hitBase == nullptr)
+		if (it->objParam == nullptr)
 			continue;
 
-		Math::Box2D box = (*(*it)->hitBase);
+		Math::Box2D box = (it->objParam->hitBase);
 
 		DrawBox(box.x, box.y, 
 				box.x + box.w, box.y + box.h,

@@ -21,7 +21,9 @@
   <ItemGroup>
     <ClCompile Include="src\Behavior_ControllJpad.cpp" />
     <ClCompile Include="src\Behavior_CreateNomalBulletForPlayer.cpp" />
+    <ClCompile Include="src\Behavior_MoveFuwaFuwa.cpp" />
     <ClCompile Include="src\Behavior_NomalMove.cpp" />
+    <ClCompile Include="src\HitCheckCharacter.cpp" />
     <ClCompile Include="src\Behavior_WindowOutDelete.cpp" />
     <ClCompile Include="src\CharacterAbstract.cpp" />
     <ClCompile Include="src\CharacterDatabase.cpp" />
@@ -32,6 +34,7 @@
     <ClCompile Include="src\CharacterManager.cpp" />
     <ClCompile Include="src\Character_Enemy.cpp" />
     <ClCompile Include="src\Character_Bullet.cpp" />
+    <ClCompile Include="src\Character_EnemyCreator.cpp" />
     <ClCompile Include="src\Character_Player.cpp" />
     <ClCompile Include="src\System.cpp" />
     <ClCompile Include="src\GameSystem.cpp" />
@@ -59,6 +62,7 @@
     <ClInclude Include="src\CharacterParameter.h" />
     <ClInclude Include="src\Character_Enemy.h" />
     <ClInclude Include="src\Character_Bullet.h" />
+    <ClInclude Include="src\Character_EnemyCreator.h" />
     <ClInclude Include="src\Character_Player.h" />
     <ClInclude Include="src\System.h" />
     <ClInclude Include="src\GameSystem.h" />

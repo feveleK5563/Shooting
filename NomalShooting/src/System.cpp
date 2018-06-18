@@ -14,9 +14,7 @@ bool System::WindowOutBox(const Math::Box2D& hitBase)
 bool System::WindowInBox(const Math::Box2D& hitBase)
 {
 	Math::Box2D windowBox(0, 0, windowSizeX, windowSizeY);
-	return	windowBox.x < hitBase.x && windowBox.y < hitBase.y &&
-			windowBox.x + windowBox.w > hitBase.x + hitBase.w &&
-			windowBox.y + windowBox.h > hitBase.y + hitBase.h;
+	return windowBox.In(hitBase);
 }
 
 //ˆÀ‘S‚Édelete‚·‚é

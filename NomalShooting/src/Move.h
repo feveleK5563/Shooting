@@ -7,6 +7,7 @@ class Move
 {
 private:
 	Math::Vec2	pos;		//座標
+	Math::Vec2	basePos;	//基準となる座標
 	Math::Vec2	moveVec;	//移動ベクトル
 	float		angle;		//角度
 	float		moveVolume;	//移動量
@@ -20,6 +21,7 @@ public:
 			float				angle,
 			float				moveVolume);
 
+	void SetPos(float x, float y);			//座標を一括設定
 	void SetPosX(float posX);				//座標Xを設定
 	void SetPosY(float posY);				//座標Yを設定
 	void SetAngle(float angle);				//角度を設定
@@ -31,6 +33,7 @@ public:
 	void AddMoveVolume(float addVolume);					//移動量に指定量加算する
 	void AddAngleMoveVec();									//角度と移動量からベクトルを算出し、移動ベクトルに加算する
 	void UpdatePos();										//移動ベクトル量を座標に加算する(動かす)
+	void UpdateBasePos();									//基準座標を基準にして座標を動かす(基準座標は変化しない)
 	void NotScreenOutUpdatePos(const Math::Box2D& rect);	//画面外に出ない移動
 
 	const Math::Vec2&	GetPos() const;			//座標を取得する

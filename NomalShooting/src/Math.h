@@ -39,6 +39,7 @@ namespace Math
 		Box2D(int setX, int setY, int setW, int setH);
 
 		bool Hit(const Box2D& box) const;
+		bool In(const Box2D& box) const;
 
 		void Offset(int setX, int setY);
 		void Offset(const Vec2& vec);

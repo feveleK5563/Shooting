@@ -1,31 +1,25 @@
 #include "CharacterParameter.h"
 
 //-----------------------------------------------------------------------------
-//パラメーター構造体(使用する値の実体を生成してから使用する)
-CharacterParameter::CharacterParameter(CharacterID ID, float priority):
+//オブジェクト(プレイヤーとか敵とかを指す)に使用するパラメーター
+ObjectParameter::ObjectParameter() :
+	life(0),
+	move(),
+	hitBase(0, 0, 0, 0) {}
+
+//-----------------------------------------------------------------------------
+//パラメーター構造体
+CharacterParameter::CharacterParameter(CharacterID ID, float priority, State state):
 	ID(std::make_shared<CharacterID>(ID)),
 	priority(std::make_shared<float>(priority)),
 	createdNum(std::make_shared<unsigned int>(0)),
-	state(nullptr),
-	move(nullptr),
-	hitBase(nullptr) {}
+	state(std::make_shared<State>(state)),
+	timeCnt(std::make_shared<TimeCounter>()),
+	objParam(nullptr){}
 
-void CharacterParameter::UseState(const State& state)
+void CharacterParameter::UseObjectParameter()
 {
-	this->state = std::make_shared<State>(state);
-}
-
-void CharacterParameter::UseMove(	const Math::Vec2&	pos,
-									const Math::Vec2&	moveVec,
-									float				angle,
-									float				moveVolume)
-{
-	this->move = std::make_shared<Move>(pos, moveVec, angle, moveVolume);
-}
-
-void CharacterParameter::UseHitBase(int x, int y, int w, int h)
-{
-	this->hitBase = std::make_shared<Math::Box2D>(x, y, w, h);
+	objParam = std::make_shared<ObjectParameter>();
 }
 
 //-----------------------------------------------------------------------------
@@ -35,5 +29,4 @@ ROCharacterParameter::ROCharacterParameter(const CharacterParameter& character) 
 	priority(character.priority),
 	createdNum(character.createdNum),
 	state(character.state),
-	move(character.move),
-	hitBase(character.hitBase) {}
+	objParam(character.objParam){}

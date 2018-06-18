@@ -11,14 +11,12 @@ protected:
 	std::vector<std::shared_ptr<CharacterAbstract>>		createdCharacter;	//生成したキャラクターを格納する
 
 public:
-	CharacterAbstract(CharacterID ID, float priority);
+	CharacterAbstract(CharacterID ID, float priority, State state);
 	virtual ~CharacterAbstract() = default;
 	virtual void Update(const ROD& data) = 0;
 	virtual void Draw() = 0;
 
 	const CharacterParameter& GetParameterRef();
 	std::vector<std::shared_ptr<CharacterAbstract>>& GetCreatedCharacterRef();
-
-protected:
 	void ClearCreatedCharacter();
 };

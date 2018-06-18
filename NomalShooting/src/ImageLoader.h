@@ -10,6 +10,7 @@ enum struct ImageName
 {
 	BackImage,			//”wŒi
 	PlayerImage,		//ƒvƒŒƒCƒ„[
+	EnemyImage,			//“G
 	NomalBulletImage,	//’Êí’e
 };
 

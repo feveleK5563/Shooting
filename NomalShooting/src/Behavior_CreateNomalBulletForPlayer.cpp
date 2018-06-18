@@ -6,21 +6,18 @@
 //プレイヤー用通常弾を生成する
 bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara, const ROD& data)
 {
-	if (Input::joypad1[PAD_INPUT_1].GetDurationTime(ON) % 3 == 0)
-	{
-		CharacterFactory fac;
-		chara.GetCreatedCharacterRef().emplace_back(
-			fac.CreateNomalBullet(
-				CharacterID::PlayerBullet,
-				CharacterID::Enemy,
-				Image::imageLoader.GetImageData(ImageName::NomalBulletImage),
-				Math::ToRadian(0.f),
-				30.f,
-				chara.GetParameterRef().move->GetPos() + Math::Vec2(40, 0),
-				90, 210, 255
-			)
-		);
-		return true;
-	}
+	CharacterFactory fac;
+	chara.GetCreatedCharacterRef().emplace_back(
+		fac.CreateNomalBullet(
+			CharacterID::PlayerBullet,
+			BF::NomalMove,
+			(int)CharacterID::Enemy,
+			Image::imageLoader.GetImageData(ImageName::NomalBulletImage),
+			Math::ToRadian(0.f),
+			30.f,
+			chara.GetParameterRef().objParam->move.GetPos() + Math::Vec2(40, 0),
+			Color(90, 210, 255)
+		)
+	);
 	return false;
 }

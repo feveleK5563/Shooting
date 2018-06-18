@@ -3,6 +3,17 @@
 #include "Math.h"
 #include "ImageLoader.h"
 
+//色指定
+class Color
+{
+public:
+	int r, g, b;
+	Color();
+	Color(int r, int g, int b);
+	Color(const Color& color);
+};
+
+//画像データの描画とアニメーションの管理
 class ImageDrawer
 {
 private:
@@ -11,13 +22,13 @@ private:
 	float		nowAnimImage;	//現在のアニメーション画像
 	float		animWaitTime;	//アニメーションの待機時間
 	bool		isLoop;			//アニメーションのループフラグ
-	int			R, G, B;		//描画輝度(デフォルトで255,255,255)
+	Color		color;			//RGB(赤緑青)
 
 public:
 	//コンストラクタ(描画したい画像データとループするか否かを指定)
 	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop);
 	//コンストラクタ(描画したい画像データとループするか否かと描画輝度を指定)
-	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, int R, int G, int B);
+	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color);
 
 	void Run();	//アニメーションさせる(不要なら呼ばなくてもよい)
 

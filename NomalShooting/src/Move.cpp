@@ -5,7 +5,10 @@
 //コンストラクタ(座標、移動ベクトルは0)
 Move::Move():
 	pos(0, 0),
-	moveVec(0, 0){}
+	basePos(0, 0),
+	moveVec(0, 0),
+	angle(0),
+	moveVolume(0){}
 
 //コンストラクタ(座標、移動ベクトルを任意の数値に設定)
 Move::Move(	const Math::Vec2&	pos,
@@ -13,20 +16,29 @@ Move::Move(	const Math::Vec2&	pos,
 			float				angle,
 			float				moveVolume) :
 	pos(pos),
+	basePos(pos),
 	moveVec(moveVec),
 	angle(angle),
 	moveVolume(moveVolume){}
 
 
+//座標を一括設定
+void Move::SetPos(float x, float y)
+{
+	pos = Math::Vec2(x, y);
+	basePos = pos;
+}
 //座標Xを設定
 void Move::SetPosX(float posX)
 {
 	pos.x = posX;
+	basePos.x = pos.x;
 }
 //座標Yを設定
 void Move::SetPosY(float posY)
 {
 	pos.y = posY;
+	basePos.y = pos.y;
 }
 //角度を設定
 void Move::SetAngle(float angle)
@@ -72,6 +84,12 @@ void Move::AddAngleMoveVec()
 void Move::UpdatePos()
 {
 	pos += moveVec;
+	basePos += moveVec;
+}
+//基準座標を基準にして座標を動かす(基準座標は変化しない)
+void Move::UpdateBasePos()
+{
+	pos = basePos + moveVec;
 }
 //画面外に出ない移動
 void Move::NotScreenOutUpdatePos(const Math::Box2D& rect)

@@ -67,12 +67,14 @@ namespace Math
 
 	bool Box2D::Hit(const Box2D& box) const
 	{
-		if (x <= box.x + box.w && box.x < x + w &&
-			y <= box.y + box.h && box.y < y + h)
-		{
-			return true;
-		}
-		return false;
+		return	x <= box.x + box.w && box.x < x + w &&
+				y <= box.y + box.h && box.y < y + h;
+	}
+	
+	bool Box2D::In(const Box2D& box) const
+	{
+		return	x <= box.x && box.x + box.w < x + w &&
+				y <= box.y && box.y + box.h < y + h;
 	}
 
 	void Box2D::Offset(int setX, int setY)

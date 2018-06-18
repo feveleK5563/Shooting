@@ -127,6 +127,15 @@
     <ClCompile Include="src\Behavior_WindowOutDelete.cpp">
       <Filter>ソース ファイル\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="src\Character_EnemyCreator.cpp">
+      <Filter>ソース ファイル\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HitCheckCharacter.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Behavior_MoveFuwaFuwa.cpp">
+      <Filter>ソース ファイル\Behavior</Filter>
+    </ClCompile>
     <ClCompile Include="src\Behavior_NomalMove.cpp">
       <Filter>ソース ファイル\Behavior</Filter>
     </ClCompile>
@@ -206,6 +215,9 @@
     </ClInclude>
     <ClInclude Include="src\Character_Bullet.h">
       <Filter>ソース ファイル\Character\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_EnemyCreator.h">
+      <Filter>ソース ファイル\Character\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

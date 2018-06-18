@@ -9,6 +9,11 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 	Image::imageLoader.LoadOneImage(ImageName::BackImage, "data/image/backStars.png");
 	Image::imageLoader.LoadOneImage(ImageName::PlayerImage, "data/image/fighter.png");
 	Image::imageLoader.LoadOneImage(ImageName::NomalBulletImage, "data/image/bullet.png");
+	Image::imageLoader.LoadOneImage(ImageName::EnemyImage, "data/image/enemy.png");
+
+	charaManager.AddCharacter(
+		charaFactory.CreateEnemyCreator()
+	);
 
 	charaManager.AddCharacter(
 		charaFactory.CreateBack(
@@ -24,6 +29,16 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 			Math::Vec2(100, (float)System::windowSizeY / 2)
 		)
 	);
+
+	/*for (int i = 0; i < 300; ++i)
+	{
+		charaManager.AddCharacter(
+			charaFactory.CreateEnemy(
+				Image::imageLoader.GetImageData(ImageName::EnemyImage),
+				Math::Vec2(float(rand() % System::windowSizeX), float(rand() % System::windowSizeY))
+			)
+		);
+	}*/
 }
 
 Scene_Game::~Scene_Game()

@@ -7,7 +7,7 @@
 Scene_Title::Scene_Title(const SceneParameter& parameter)
 {
 	Image::imageLoader.LoadOneImage(ImageName::BackImage, "data/image/title.png");
-	back.reset(new Character_BackImage(Image::imageLoader.GetImageData(ImageName::BackImage), Math::Vec2(0, 0), false));
+	back.reset(new Character_BackImage(0.0f, Image::imageLoader.GetImageData(ImageName::BackImage), Math::Vec2(0, 0), false));
 }
 
 Scene_Title::~Scene_Title()
