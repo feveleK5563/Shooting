@@ -30,7 +30,7 @@ public:
 	//コンストラクタ(描画したい画像データとループするか否かと描画輝度を指定)
 	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color);
 
-	void Run();	//アニメーションさせる(不要なら呼ばなくてもよい)
+	bool Run();	//アニメーションさせる(アニメーションが一周したらtrueが返る)
 
 	void Draw(const Math::Vec2& pos, float scale, float angle, bool isTurn);	//描画する
 	void DrawOne(const Math::Vec2& pos, float scale, float angle, bool isTurnint, int imageSheet);	//指定番号の画像を描画する

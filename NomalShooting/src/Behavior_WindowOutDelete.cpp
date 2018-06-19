@@ -3,7 +3,7 @@
 #include "Behavior.h"
 
 //‰æ–ÊŠO‚Éo‚½‚çŽ©g‚ðíœ‚·‚é
-bool BF::WindowOutDelete(CharacterAbstract& chara, const ROD& data)
+bool BF::WindowOutDelete(CharacterAbstract& chara)
 {
 	if (System::WindowOutBox(chara.GetParameterRef().objParam->hitBase))
 	{

@@ -25,7 +25,7 @@ void Character_Enemy::Update(const ROD& data)
 {
 	parameter.timeCnt->Run();
 
-	motion(*this, data);
+	motion(*this);
 
 	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
 

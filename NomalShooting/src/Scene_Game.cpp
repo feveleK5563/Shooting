@@ -10,6 +10,7 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 	Image::imageLoader.LoadOneImage(ImageName::PlayerImage, "data/image/fighter.png");
 	Image::imageLoader.LoadOneImage(ImageName::NomalBulletImage, "data/image/bullet.png");
 	Image::imageLoader.LoadOneImage(ImageName::EnemyImage, "data/image/enemy.png");
+	Image::imageLoader.LoadDivImage(ImageName::BombEffect, "data/image/bomb.png", 8, 8, 1, 32, 32);
 
 	charaManager.AddCharacter(
 		charaFactory.CreateEnemyCreator()
@@ -29,16 +30,6 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 			Math::Vec2(100, (float)System::windowSizeY / 2)
 		)
 	);
-
-	/*for (int i = 0; i < 300; ++i)
-	{
-		charaManager.AddCharacter(
-			charaFactory.CreateEnemy(
-				Image::imageLoader.GetImageData(ImageName::EnemyImage),
-				Math::Vec2(float(rand() % System::windowSizeX), float(rand() % System::windowSizeY))
-			)
-		);
-	}*/
 }
 
 Scene_Game::~Scene_Game()

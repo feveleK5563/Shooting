@@ -27,23 +27,20 @@ ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterion
 	isLoop(isLoop),
 	color(color){}
 
-
 //アニメーションさせる
-void ImageDrawer::Run()
+bool ImageDrawer::Run()
 {
-	nowAnimImage += 1.0f / animWaitTime;
-
-	if (nowAnimImage > imageData.sheetNum - 1)
+	if (nowAnimImage >= imageData.sheetNum)
 	{
-		if (isLoop == true)
+		if (isLoop)
 		{
 			nowAnimImage = 0;
 		}
-		else
-		{
-			nowAnimImage = imageData.sheetNum - 1.f;
-		}
+		return true;
 	}
+
+	nowAnimImage += 1.0f / animWaitTime;
+	return false;
 }
 
 //描画する

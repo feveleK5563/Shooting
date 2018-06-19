@@ -1,6 +1,6 @@
 #include "Behavior.h"
 
-bool BF::NomalMove(CharacterAbstract& chara, const ROD& data)
+bool BF::NomalMove(CharacterAbstract& chara)
 {
 	chara.GetParameterRef().objParam->move.AddAngleMoveVec();
 	return false;

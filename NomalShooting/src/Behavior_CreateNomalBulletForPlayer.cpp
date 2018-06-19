@@ -4,7 +4,7 @@
 #include "Behavior.h"
 
 //プレイヤー用通常弾を生成する
-bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara, const ROD& data)
+bool BF::CreateNomalBulletForPlayer(CharacterAbstract& chara)
 {
 	CharacterFactory fac;
 	chara.GetCreatedCharacterRef().emplace_back(

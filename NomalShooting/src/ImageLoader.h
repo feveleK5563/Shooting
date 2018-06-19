@@ -12,6 +12,7 @@ enum struct ImageName
 	PlayerImage,		//プレイヤー
 	EnemyImage,			//敵
 	NomalBulletImage,	//通常弾
+	BombEffect,			//爆発エフェクト
 };
 
 //画像データ

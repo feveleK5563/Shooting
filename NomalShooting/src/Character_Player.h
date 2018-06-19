@@ -7,6 +7,7 @@ class Character_Player : public CharacterAbstract
 {
 private:
 	ImageDrawer imageDrawer;
+	Behavior	behavior;
 
 public:
 	//優先度、画像データ、初期座標を設定

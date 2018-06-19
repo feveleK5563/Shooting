@@ -38,11 +38,11 @@ void Character_Bullet::Update(const ROD& data)
 	}
 
 	parameter.objParam->move.ClearMoveVec();
-	moveBehavior(*this, data);
+	moveBehavior(*this);
 	parameter.objParam->move.UpdatePos();
 
 	//‰æ–ÊŠO‚Éo‚½‚çíœ
-	if (BF::WindowOutDelete(*this, data)) return;
+	if (BF::WindowOutDelete(*this)) return;
 
 	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
 

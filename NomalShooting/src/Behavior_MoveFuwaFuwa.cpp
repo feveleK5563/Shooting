@@ -1,6 +1,6 @@
 #include "Behavior.h"
 
-bool BF::MoveFuwaFuwa(CharacterAbstract& chara, const ROD& data)
+bool BF::MoveFuwaFuwa(CharacterAbstract& chara)
 {
 	//‚Ó‚í‚Ó‚í
 	chara.GetParameterRef().objParam->move.ClearMoveVec();

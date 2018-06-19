@@ -3,7 +3,7 @@
 #include "Behavior.h"
 
 //ジョイパッドで操作する
-bool BF::ControllJpad(CharacterAbstract& chara, const ROD& data)
+bool BF::ControllJpad(CharacterAbstract& chara)
 {
 	if (Input::joypad1.GetVolumeStickL() > 0.f)
 	{

@@ -23,12 +23,12 @@ Character_Player::Character_Player(float priority, const ImageData& imageData, c
 void Character_Player::Update(const ROD& data)
 {
 	parameter.objParam->move.ClearMoveVec();
-	BF::ControllJpad(*this, data);
+	BF::ControllJpad(*this);
 	parameter.objParam->move.NotScreenOutUpdatePos(parameter.objParam->hitBase);
 
 	if (Input::joypad1[PAD_INPUT_1].GetDurationTime(ON) % 3 == 0)
 	{
-		BF::CreateNomalBulletForPlayer(*this, data);
+		BF::CreateNomalBulletForPlayer(*this);
 	}
 
 	parameter.objParam->hitBase.Offset(parameter.objParam->move.GetPos());
