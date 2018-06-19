@@ -44,6 +44,9 @@
     <Filter Include="ソース ファイル\BaseClass">
       <UniqueIdentifier>{a090e20a-fb55-4738-a2bf-6d56bfbcede7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Character\Effect">
+      <UniqueIdentifier>{1ba15e16-1fe2-49f0-a152-4092e51cffe8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -139,6 +142,9 @@
     <ClCompile Include="src\Behavior_NomalMove.cpp">
       <Filter>ソース ファイル\Behavior</Filter>
     </ClCompile>
+    <ClCompile Include="src\Character_Effect.cpp">
+      <Filter>ソース ファイル\Character\Effect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameSystem.h">
@@ -218,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="src\Character_EnemyCreator.h">
       <Filter>ソース ファイル\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Character_Effect.h">
+      <Filter>ソース ファイル\Character\Effect</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 #include "Behavior.h"
+#include "CharacterFactory.h"
 
 #include "Character_Enemy.h"
 
@@ -10,7 +11,7 @@ Character_Enemy::Character_Enemy(	float priority,
 									const Math::Vec2& pos,
 									const Color& color):
 	CharacterAbstract(CharacterID::Enemy, priority, State::Active),
-	imageDrawer(imageData, Math::Vec2((float)imageData.size.w / 2, (float)imageData.size.h / 2), false, color),
+	imageDrawer(imageData, Math::Vec2(imageData.size.w / 2.f, imageData.size.h / 2.f), false, color),
 	motion(motion)
 {
 	parameter.UseObjectParameter();
@@ -23,6 +24,14 @@ Character_Enemy::Character_Enemy(	float priority,
 //-----------------------------------------------------------------------------
 void Character_Enemy::Update(const ROD& data)
 {
+	CharacterAbstract::ClearCreatedCharacter();
+
+	if (*parameter.state == State::Death)
+	{
+		*parameter.state = State::Delete;
+		return;
+	}
+
 	parameter.timeCnt->Run();
 
 	motion(*this);
@@ -34,7 +43,15 @@ void Character_Enemy::Update(const ROD& data)
 		--parameter.objParam->life;
 		if (parameter.objParam->life <= 0)
 		{
-			*parameter.state = State::Delete;
+			*parameter.state = State::Death;
+			
+			CharacterFactory factory;
+			createdCharacter.emplace_back(
+				factory.CreateEffect(
+					Image::imageLoader.GetImageData(ImageName::BombEffect),
+					parameter.objParam->move.GetPos()
+				)
+			);
 		}
 	}
 }

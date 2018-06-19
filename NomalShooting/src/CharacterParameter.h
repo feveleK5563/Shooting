@@ -16,6 +16,7 @@ enum struct CharacterID
 	PlayerBullet	= 1 << 4,	//プレイヤー弾
 	EnemyBullet		= 1 << 5,	//敵弾
 	UI				= 1 << 6,	//UI
+	Effect			= 1 << 7,	//エフェクト
 };
 
 //状態

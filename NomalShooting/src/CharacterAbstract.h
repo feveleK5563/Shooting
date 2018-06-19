@@ -19,4 +19,6 @@ public:
 	const CharacterParameter& GetParameterRef();
 	std::vector<std::shared_ptr<CharacterAbstract>>& GetCreatedCharacterRef();
 	void ClearCreatedCharacter();
+
+	//void Message(int type, const void* data);
 };

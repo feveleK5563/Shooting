@@ -42,6 +42,7 @@ void ImageLoader::LoadDivImage(ImageName imgName, const std::string& filePath, i
 	char* path = new char[filePath.size() + 1];
 	std::char_traits<char>::copy(path, filePath.c_str(), filePath.size() + 1);
 
+	imageData[imgName].handle = new int[allNum] {};
 	LoadDivGraph(path, allNum, xNum, yNum, xSize, ySize, imageData[imgName].handle);
 	imageData[imgName].sheetNum = allNum;
 	imageData[imgName].size = { 0, 0, xSize, ySize };

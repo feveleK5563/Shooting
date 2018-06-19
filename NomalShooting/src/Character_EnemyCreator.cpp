@@ -14,7 +14,7 @@ Character_EnemyCreator::Character_EnemyCreator(float priority):
 //-----------------------------------------------------------------------------
 void Character_EnemyCreator::Update(const ROD& data)
 {
-	if (parameter.timeCnt->GetNowCntTime() % 160 == 0)
+	if (parameter.timeCnt->GetNowCntTime() % 100 == 0)
 	{
 		CharacterFactory factry;
 		float posy = float(mtrand() % (System::windowSizeY - 100) + 50);

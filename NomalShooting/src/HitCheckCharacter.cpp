@@ -4,7 +4,7 @@ bool HC::HitCheckCharacter(int characterID, CharacterAbstract& chara, const ROD&
 {
 	for (const auto& it : data)
 	{
-		if ((int)*it->ID == characterID)
+		if ((int)*it->ID & characterID)
 		{
 			if (chara.GetParameterRef().objParam->hitBase.Hit(it->objParam->hitBase))
 			{

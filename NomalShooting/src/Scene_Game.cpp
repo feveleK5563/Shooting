@@ -27,7 +27,7 @@ Scene_Game::Scene_Game(const SceneParameter& parameter)
 	charaManager.AddCharacter(
 		charaFactory.CreatePlayer(
 			Image::imageLoader.GetImageData(ImageName::PlayerImage),
-			Math::Vec2(100, (float)System::windowSizeY / 2)
+			Math::Vec2(-30, (float)System::windowSizeY / 2)
 		)
 	);
 }

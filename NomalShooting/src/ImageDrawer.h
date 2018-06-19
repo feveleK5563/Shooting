@@ -29,6 +29,8 @@ public:
 	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop);
 	//コンストラクタ(描画したい画像データとループするか否かと描画輝度を指定)
 	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color);
+	//コンストラクタ(描画したい画像データとアニメーションのウェイト時間とループするか否かと描画輝度を指定)
+	ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, float animWaitTime, bool isLoop, const Color& color);
 
 	bool Run();	//アニメーションさせる(アニメーションが一周したらtrueが返る)
 

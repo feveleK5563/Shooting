@@ -3,6 +3,7 @@
 #include "Character_Player.h"
 #include "Character_Enemy.h"
 #include "Character_Bullet.h"
+#include "Character_Effect.h"
 
 #include "CharacterFactory.h"
 
@@ -47,14 +48,23 @@ std::shared_ptr<CharacterAbstract> CharacterFactory::CreateEnemy(
 //-----------------------------------------------
 //通常弾の作成
 std::shared_ptr<CharacterAbstract> CharacterFactory::CreateNomalBullet(
-	CharacterID		ID,
-	Behavior		moveBehavior, 
-	int				hitTargetID,
-	ImageData		imageData,
-	float			angle,
-	float			moveVolume,
-	Math::Vec2		pos,
-	const Color&	color)
+	CharacterID			ID,
+	Behavior			moveBehavior, 
+	int					hitTargetID,
+	const ImageData&	imageData,
+	float				angle,
+	float				moveVolume,
+	Math::Vec2			pos,
+	const Color&		color)
 {
-	return std::make_shared<Character_Bullet>(1.2f, ID, moveBehavior, hitTargetID, imageData, angle, moveVolume, pos, color);
+	return std::make_shared<Character_Bullet>(1.3f, ID, moveBehavior, hitTargetID, imageData, angle, moveVolume, pos, color);
+}
+
+//-----------------------------------------------
+//エフェクトの作成
+std::shared_ptr<CharacterAbstract> CharacterFactory::CreateEffect(
+	const ImageData&	imageData,
+	const Math::Vec2&	pos)
+{
+	return std::make_shared<Character_Effect>(1.4f, imageData, pos);
 }

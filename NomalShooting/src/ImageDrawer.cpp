@@ -15,17 +15,26 @@ ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterion
 	imageData(imageData),
 	criterionPos(criterionPos),
 	nowAnimImage(0),
-	animWaitTime(0),
+	animWaitTime(1),
 	isLoop(isLoop){}
 
 //コンストラクタ(描画したい画像データとループするか否かを指定)
-ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color) :
+ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, bool isLoop, const Color& color):
 	imageData(imageData),
 	criterionPos(criterionPos),
 	nowAnimImage(0),
-	animWaitTime(0),
+	animWaitTime(1),
 	isLoop(isLoop),
 	color(color){}
+
+//コンストラクタ(描画したい画像データとアニメーションのウェイト時間とループするか否かと描画輝度を指定)
+ImageDrawer::ImageDrawer(const ImageData& imageData, const Math::Vec2& criterionPos, float animWaitTime, bool isLoop, const Color& color) :
+	imageData(imageData),
+	criterionPos(criterionPos),
+	nowAnimImage(0),
+	animWaitTime(animWaitTime),
+	isLoop(isLoop),
+	color(color) {}
 
 //アニメーションさせる
 bool ImageDrawer::Run()

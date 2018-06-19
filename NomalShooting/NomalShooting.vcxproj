@@ -23,6 +23,7 @@
     <ClCompile Include="src\Behavior_CreateNomalBulletForPlayer.cpp" />
     <ClCompile Include="src\Behavior_MoveFuwaFuwa.cpp" />
     <ClCompile Include="src\Behavior_NomalMove.cpp" />
+    <ClCompile Include="src\Character_Effect.cpp" />
     <ClCompile Include="src\HitCheckCharacter.cpp" />
     <ClCompile Include="src\Behavior_WindowOutDelete.cpp" />
     <ClCompile Include="src\CharacterAbstract.cpp" />
@@ -64,6 +65,7 @@
     <ClInclude Include="src\Character_Bullet.h" />
     <ClInclude Include="src\Character_EnemyCreator.h" />
     <ClInclude Include="src\Character_Player.h" />
+    <ClInclude Include="src\Character_Effect.h" />
     <ClInclude Include="src\System.h" />
     <ClInclude Include="src\GameSystem.h" />
     <ClInclude Include="src\ImageDrawer.h" />

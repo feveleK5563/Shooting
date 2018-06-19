@@ -31,12 +31,18 @@ public:
 	
 	//通常弾の生成
 	std::shared_ptr<CharacterAbstract> CreateNomalBullet(
-		CharacterID		ID,
-		Behavior		moveBehavior,
-		int				hitTargetID,
-		ImageData		imageData,
-		float			angle,
-		float			moveVolume,
-		Math::Vec2		pos,
-		const Color&	color);
+		CharacterID			ID,
+		Behavior			moveBehavior,
+		int					hitTargetID,
+		const ImageData&	imageData,
+		float				angle,
+		float				moveVolume,
+		Math::Vec2			pos,
+		const Color&		color);
+
+	//エフェクトの生成
+	std::shared_ptr<CharacterAbstract> CreateEffect(
+		const ImageData&	imageData,
+		const Math::Vec2&	pos
+	);
 };
